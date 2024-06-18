@@ -1,4 +1,4 @@
-import { SHOPPING_THRESHOLD, SHOPPING_COST } from '../../constant/Cart';
+import { SHOPPING_THRESHOLD, SHOPPING_COST } from "../../constant/Cart";
 
 interface CartItem {
   id: string;
@@ -10,7 +10,7 @@ interface CartItem {
 const CartItem = ({ item }: { item: CartItem }) => (
   <div>
     <span>{item.name}</span>
-    <span>{item.price === 0 ? 'Free item' : item.price.toFixed(2)}</span>
+    <span>{item.price === 0 ? "Free item" : item.price.toFixed(2)}</span>
     <span data-testid={`quantity-${item.id}`}>{item.quantity}</span>
   </div>
 );
@@ -31,8 +31,12 @@ export default function Cart({ cart }: CartProps) {
       ))}
       <div>
         <span>Subtotal: </span>
-        <span>{cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}</span>
-        <span>{subtotal >= SHOPPING_THRESHOLD ? 'Free Shipping' : `Shipping Cost: ${SHOPPING_COST}`}</span>
+        <span>
+          {cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+        </span>
+        <span>
+          {subtotal >= SHOPPING_THRESHOLD ? "Free Shipping" : `Shipping Cost: ${SHOPPING_COST}`}
+        </span>
       </div>
     </div>
   );
